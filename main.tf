@@ -3,6 +3,7 @@ resource "aws_elasticache_subnet_group" "main" {
   subnet_ids = var.subnet_ids
   tags       = merge({ Name = "${var.component}-${var.env}" }, var.tags)
 }
+
 resource "aws_security_group" "main" {
   name        = "${var.component}-${var.env}-sg"
   description = "${var.component}-${var.env}-sg"
