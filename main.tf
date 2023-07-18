@@ -29,22 +29,22 @@ resource "aws_security_group" "main" {
 }
 
 
-resource "aws_elasticache_replication_group" "main" {
-  replication_group_id       = "${var.component}-${var.env}"
-  description                = "${var.component}-${var.env}"
-  node_type                  = var.node_type
-  port                       = var.port
-  automatic_failover_enabled = true
-  num_node_groups            = var.num_node_groups
-  replicas_per_node_group    = var.replicas_per_node_group
-  subnet_group_name          = aws_elasticache_subnet_group.main.name
-  parameter_group_name       = var.parameter_group_name
-  security_group_ids         = [aws_security_group.main.id]
-  kms_key_id                 = var.kms_key_arn
-  at_rest_encryption_enabled = true
-  engine                     = var.engine
-  engine_version             = var.engine_version
-}
+//resource "aws_elasticache_replication_group" "main" {
+//  replication_group_id       = "${var.component}-${var.env}"
+//  description                = "${var.component}-${var.env}"
+//  node_type                  = var.node_type
+//  port                       = var.port
+//  automatic_failover_enabled = true
+//  num_node_groups            = var.num_node_groups
+//  replicas_per_node_group    = var.replicas_per_node_group
+//  subnet_group_name          = aws_elasticache_subnet_group.main.name
+//  parameter_group_name       = var.parameter_group_name
+//  security_group_ids         = [aws_security_group.main.id]
+//  kms_key_id                 = var.kms_key_arn
+//  at_rest_encryption_enabled = true
+//  engine                     = var.engine
+//  engine_version             = var.engine_version
+//}
 
 
 // Added for troubleshooting
